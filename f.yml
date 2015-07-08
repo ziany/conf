@@ -1,0 +1,6 @@
+cluster.name: ziany
+node.name: "NCECLD02898"
+node.master: false
+node.data: true
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: ["NCECLD02899"]
