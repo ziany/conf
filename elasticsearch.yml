@@ -29,7 +29,7 @@
 # Cluster name identifies your cluster for auto-discovery. If you're running
 # multiple clusters on the same network, make sure you're using unique names.
 #
-cluster.name: ZYelasticsearch
+cluster.name: ZianyCluster
 
 
 #################################### Node #####################################
@@ -37,7 +37,7 @@ cluster.name: ZYelasticsearch
 # Node names are generated dynamically on startup, so you're relieved
 # from configuring them manually. You can tie this node to a specific name:
 #
-node.name: "Destroyer"
+node.name: "NCECLD02898"
 
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
@@ -104,11 +104,11 @@ node.data: true
 
 # Set the number of shards (splits) of an index (5 by default):
 #
-index.number_of_shards: 5
+#index.number_of_shards: 5
 
 # Set the number of replicas (additional copies) of an index (1 by default):
 #
-index.number_of_replicas: 1
+#index.number_of_replicas: 1
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
@@ -143,11 +143,11 @@ index.number_of_replicas: 1
 # Path to directory containing configuration (this file and logging.yml):
 #
 #path.conf: /path/to/conf
-path.conf: /etc/elasticsearch/
+#path.conf: /etc/elasticsearch/
 
 # Path to directory where to store index data allocated for this node.
 #
-path.data: /path/elsticsearch/data/
+#path.data: /path/elsticsearch/data/
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (a la RAID 0) on a file level, favouring locations with most free
@@ -157,11 +157,11 @@ path.data: /path/elsticsearch/data/
 
 # Path to temporary files:
 #
-path.work: /tmp/elasticsearch
+#path.work: /tmp/elasticsearch
 
 # Path to log files:
 #
-path.logs: /etc/elasticsearch/log
+#path.logs: /etc/elasticsearch/log
 
 # Path to where plugins are installed:
 #
@@ -182,7 +182,7 @@ path.logs: /etc/elasticsearch/log
 #
 # Set this property to true to lock the memory:
 #
-bootstrap.mlockall: true
+#bootstrap.mlockall: true
 
 # Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
 # to the same value, and that the machine has enough memory to allocate
@@ -192,7 +192,7 @@ bootstrap.mlockall: true
 # the memory, eg. by using `ulimit -l unlimited`.
 
 # Changed to keep indexes in memory instead of in filesystem
-index.store.type: memory
+#index.store.type: memory
 
 ############################## Network And HTTP ###############################
 
@@ -203,32 +203,32 @@ index.store.type: memory
 
 # Set the bind address specifically (IPv4 or IPv6):
 #
-network.bind_host: 10.64.156.167
+#network.bind_host: 10.64.156.167
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
 #
-#network.publish_host: 10.64.156.
+network.publish_host: 10.64.156.167
 
 # Set both 'bind_host' and 'publish_host':
 #
-network.host: 10.64.156.167
+#network.host: 10.64.156.167
 
 # Set a custom port for the node to node communication (9300 by default):
 #
-transport.tcp.port: 9300
+#transport.tcp.port: 9300
 
 # Enable compression for all communication between nodes (disabled by default):
 #
-transport.tcp.compress: true
+#transport.tcp.compress: true
 
 # Set a custom port to listen for HTTP traffic:
 #
-http.port: 9200
+#http.port: 9200
 
 # Set a custom allowed content length:
 #
-http.max_content_length: 100mb
+#http.max_content_length: 100mb
 
 # Disable HTTP completely:
 #
@@ -247,7 +247,7 @@ http.max_content_length: 100mb
 
 # The default gateway type is the "local" gateway (recommended):
 #
-gateway.type: local
+#gateway.type: local
 
 # Settings below control how and when to start the initial recovery process on
 # a full cluster restart (to reuse as much local data as possible when using shared
@@ -255,18 +255,18 @@ gateway.type: local
 
 # Allow recovery process after N nodes in a cluster are up:
 #
-gateway.recover_after_nodes: 1
+#gateway.recover_after_nodes: 1
 
 # Set the timeout to initiate the recovery process, once the N nodes
 # from previous setting are up (accepts time value):
 #
-gateway.recover_after_time: 5m
+#gateway.recover_after_time: 5m
 
 # Set how many nodes are expected in this cluster. Once these N nodes
 # are up (and recover_after_nodes is met), begin recovery process immediately
 # (without waiting for recover_after_time to expire):
 #
-gateway.expected_nodes: 4
+#gateway.expected_nodes: 4
 
 
 ############################# Recovery Throttling #############################
@@ -279,20 +279,20 @@ gateway.expected_nodes: 4
 #
 # 1. During the initial recovery
 #
-cluster.routing.allocation.node_initial_primaries_recoveries: 4
+#cluster.routing.allocation.node_initial_primaries_recoveries: 4
 #
 # 2. During adding/removing nodes, rebalancing, etc
 #
-cluster.routing.allocation.node_concurrent_recoveries: 2
+#cluster.routing.allocation.node_concurrent_recoveries: 2
 
 # Set to throttle throughput when recovering (eg. 100mb, by default 20mb):
 #
-indices.recovery.max_bytes_per_sec: 20mb
+#indices.recovery.max_bytes_per_sec: 20mb
 
 # Set to limit the number of open concurrent streams when
 # recovering a shard from a peer:
 #
-indices.recovery.concurrent_streams: 5
+#indices.recovery.concurrent_streams: 5
 
 
 ################################## Discovery ##################################
@@ -304,13 +304,13 @@ indices.recovery.concurrent_streams: 5
 # operational within the cluster. This should be set to a quorum/majority of 
 # the master-eligible nodes in the cluster.
 #
-discovery.zen.minimum_master_nodes: 2
+#discovery.zen.minimum_master_nodes: 1
 
 # Set the time to wait for ping responses from other nodes when discovering.
 # Set this option to a higher value on a slow or congested network
 # to minimize discovery failures:
 #
-discovery.zen.ping.timeout: 10s
+#discovery.zen.ping.timeout: 1m
 
 # For more information, see
 # <http://elasticsearch.org/guide/en/elasticsearch/reference/current/modules-discovery-zen.html>
@@ -321,15 +321,15 @@ discovery.zen.ping.timeout: 10s
 #
 # 1. Disable multicast discovery (enabled by default):
 #
-discovery.zen.ping.multicast.enabled: false
+#discovery.zen.ping.multicast.enabled: false
 #
 # 2. Configure an initial list of master nodes in the cluster
 #    to perform discovery when new nodes (master or data) are started:
 #
-discovery.zen.ping.unicast.hosts: ["NCECLD02899.nce.amadeus.net"]
+#discovery.zen.ping.unicast.hosts: ["NCECLD02899"]
 
 # EC2 discovery allows to use AWS EC2 API in order to perform discovery.
-u have to install the cloud-azure plugin for enabling the Azure discovery.
+#u have to install the cloud-azure plugin for enabling the Azure discovery.
 #
 # For more information, see <https://github.com/elasticsearch/elasticsearch-cloud-azure>.
 
